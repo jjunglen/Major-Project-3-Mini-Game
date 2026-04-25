@@ -141,26 +141,6 @@ export default function Home() {
           </div>
 
           {/* View */}
-          {/* <div>
-            <button
-              className="cursor-pointer"
-              onClick={() => navigate("/leaderboard")}
-            >
-              View Leaderboard
-            </button>
-            <button
-              className="cursor-pointer"
-              onClick={() => navigate("/stats")}
-            >
-              View Stats (Coming Soon..)
-            </button>
-            <button
-              className="cursor-pointer"
-              onClick={() => navigate("/settings")}
-            >
-              View Settings (Coming Soon..)
-            </button>
-          </div> */}
         </div>
       </main>
     );

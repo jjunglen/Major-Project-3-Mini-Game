@@ -10,6 +10,7 @@ export function GameProvider({ children }) {
     const [ theme, setTheme ] = useState("nature");
     const [ timeRemaining, setTimeRemaining ] = useState(60);
     const [ moves, setMoves ] = useState(0);
+
     
     const startGame = () => {
         setScore(0);
