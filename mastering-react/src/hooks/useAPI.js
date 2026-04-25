@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
-export default function usePicsumImage(count) {
-    const [imageId, setImageId] = useState([]);
+export function usePicsumImages(count) {
+    const [imageIds, setImageIds] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useEffect(null);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchAPI = async () => {
@@ -19,7 +19,7 @@ export default function usePicsumImage(count) {
                 const countCards = shuffledCards.slice(0, count);
                 const mappedCards = countCards.map((card) => card.id);
 
-                setImageId(mappedCards);
+                setImageIds(mappedCards);
             } catch (error) {
                 setError(error.message);
             } finally {
@@ -32,8 +32,8 @@ export default function usePicsumImage(count) {
     }, [count])
 
     const getImageURL = (id) => {
-        `https://picsum.photos/id/${id}/300/300`;
+        return `https://picsum.photos/id/${id}/300/300`;
     }
-}
 
-return { imageId, loading, error, getImageURL };
+    return { imageIds, loading, error };
+}

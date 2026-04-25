@@ -10,6 +10,7 @@ export function GameProvider({ children }) {
     const [ theme, setTheme ] = useState("nature");
     const [ timeRemaining, setTimeRemaining ] = useState(60);
     const [ moves, setMoves ] = useState(0);
+    const [ maxMoves, setMaxMoves ] = useState(45);
 
     
     const startGame = () => {
@@ -19,6 +20,9 @@ export function GameProvider({ children }) {
         setTimeRemaining(
             difficulty === "easy" ? 120 : difficulty === "medium" ? 90 : 45
         );
+        setMaxMoves(
+            difficulty === "easy" ? 60 : difficulty === "medium" ? 50 : 40
+        )
     }
 
     const gameOver = () => setGameState("Game over");
@@ -41,7 +45,7 @@ export function GameProvider({ children }) {
                 gameOver,
                 addScore,
                 increaseMoves,   
-
+                maxMoves
             }}
         >
             {children}

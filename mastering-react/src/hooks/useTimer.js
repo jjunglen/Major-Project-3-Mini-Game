@@ -14,7 +14,7 @@ export function useTimer(isRunning, setTime, onExpire) {
                     }
                     return previous - 1;
                 });
-            }, 2000);
+            }, 1000);
         }
 
         return () => clearInterval(intervalRef.current);
