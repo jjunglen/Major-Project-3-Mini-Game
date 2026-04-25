@@ -1,6 +1,11 @@
 import { NavLink } from "react-router"
+import { usePlayer } from "../context/PlayerContext";
+import { useGame } from "../context/GameContext";
 
 export default function Navigation() {
+    const { gameState } = useGame();
+    const { topScore } = usePlayer();
+
     return (
       <nav className="flex items-center font-bold justify-between gap-5 p-4 bg-white mb-2">
         <div>Memory Master</div>
@@ -13,14 +18,7 @@ export default function Navigation() {
           >
             Home
           </NavLink>
-          <NavLink
-            to="/game"
-            className={({ isActive }) =>
-              isActive ? "text-purple-600 font-bold " : "text-black"
-            }
-          >
-            Play Game
-          </NavLink>
+
           <NavLink
             to="/leaderboard"
             className={({ isActive }) =>
@@ -29,6 +27,17 @@ export default function Navigation() {
           >
             Leaderboard
           </NavLink>
+
+          <NavLink
+            to="/game"
+            className={({ isActive }) =>
+              isActive ? "text-purple-600 font-bold " : "text-black"
+            }
+            >
+              Game Board
+            </NavLink>
+            
+          <p className="text-Black">Best: {topScore}</p>
         </div>
       </nav>
     );
