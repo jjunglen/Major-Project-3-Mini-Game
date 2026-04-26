@@ -58,5 +58,6 @@ export function useGameBoard(imageIds = []) {
         flipCard,
         isCardFlipped,
         allMatched,
+        flipped
     }
 }

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useGame } from "../context/GameContext";
 import { usePlayer } from "../context/PlayerContext";
 import { useGameBoard } from "../hooks/useGame";
@@ -25,27 +25,26 @@ export default function Game() {
         maxMoves
     } = useGame()
 
-    const { saveScore } = usePlayer();
+    const { yourScore } = usePlayer();
 
     const countPairs = difficulty === "easy" ? 6 : difficulty === "medium" ? 8 : 12;
     const { imageIds, loading, error } = usePicsumImages(countPairs);
 
-    const { cards, flipCard, isCardFlipped, allMatched } = useGameBoard(imageIds);
+    const { cards, flipCard, isCardFlipped, flipped, allMatched } = useGameBoard(imageIds);
 
     useEffect(() => {
         if (allMatched && gameState === "playing") {
             const timeBonus = timeRemaining * 10;
             gameOver();
-            saveScore(score + timeBonus, difficulty);
+            yourScore(score + timeBonus, difficulty);
             navigate("/gameover", { state: {score: score + timeBonus, moves }});
         };
     }, [allMatched])
 
     useEffect(() => {
         if (moves >= maxMoves && gameState === "playing") {
-            const timeBonus = timeRemaining * 10;
             gameOver();
-            saveScore(score + timeBonus, difficulty);
+            yourScore(score, difficulty);
             navigate("/gameover", { state: {score: score, moves }});
         };
     }, [moves])
@@ -55,19 +54,18 @@ export default function Game() {
         setTimeRemaining,
         () => {
             gameOver();
-            saveScore(score, difficulty);
+            yourScore(score, difficulty);
             navigate("/gameover", {state: {score, moves}});
         }
     )
 
     const handleFlip = (cardId) => {
         if (gameState !== 'playing') return
-        increaseMoves();
         flipCard(cardId);
         addScore(5);
 
         if (flipped.length === 1) {
-            increaseMoves;
+            increaseMoves();
         }
     }
 

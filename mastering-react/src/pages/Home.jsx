@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useGame } from "../context/GameContext";
 import { usePlayer } from "../context/PlayerContext";
 
@@ -11,7 +11,7 @@ const difficulites = [
 ];
 
 const themes = [
-    { key: 'nature',   label: 'Nature',   emoji: '🌿', desc: 'Beautiful landscapes and nature' },
+    { key: 'nature',   label: 'Nature',   emoji: '🌿', desc: 'Beautiful landscapes' },
     { key: 'animals',  label: 'Animals',  emoji: '🐾', desc: 'Cute animals' },
     { key: 'food',     label: 'Food',     emoji: '🍕', desc: 'Delicious food' },
     { key: 'space',    label: 'Space',    emoji: '🚀', desc: 'Rockets and planets' },
@@ -29,7 +29,7 @@ export default function Home() {
     const stats = [
         { label: "Games Played", value: gamePlayed },
         { label: "High Score", value: topScore },
-        { label: "Achievements", value: achievements },
+        { label: "Achievements", value: achievements.length },
     ];
 
     const handleStart = () => {

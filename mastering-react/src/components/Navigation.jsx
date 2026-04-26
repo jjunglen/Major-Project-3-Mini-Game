@@ -1,4 +1,4 @@
-import { NavLink } from "react-router"
+import { NavLink } from "react-router-dom"
 import { usePlayer } from "../context/PlayerContext";
 import { useGame } from "../context/GameContext";
 

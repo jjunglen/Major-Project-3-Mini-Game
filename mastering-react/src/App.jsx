@@ -1,5 +1,5 @@
 import "./index.css"
-import { Routes, Route } from "react-router"
+import { Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
 import Game from "./pages/Game"
 import Gameover from "./pages/Gameover"

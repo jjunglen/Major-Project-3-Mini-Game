@@ -13,11 +13,10 @@ export function PlayerProvider({ children }) {
             score,
             difficulty,
             date: new Date().toISOString(),
-            id: highscores.length + 1 || 1,
+            id: Date.now()
         };
 
-        setHighScores((previousScores) => [...previousScores, newEntry].sort((score1, score2) => score2 - score1),slice(0, 5),)
-        setGamePlayed((games) => games + 1);
+        setHighScores(previous => [...previous, newEntry].sort((score1, score2) => score2.score - score1.score).slice(0, 5))
     };
 
     const topScore = highScores.length > 0 ? highScores[0].score : 0;

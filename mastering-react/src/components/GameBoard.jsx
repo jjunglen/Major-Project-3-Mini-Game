@@ -4,9 +4,9 @@ export default function GameBoard({ cards, isCardFlipped, handleFlip}) {
     const { difficulty } = useGame();
     const countPairs = difficulty === "easy" ? 6 : difficulty === "medium" ? 8 : 12;
 
-    const gridClass = difficulty === "easy" ? "grid-cols-3" : difficulty === "medium" ? "grid-cols-4" : "grid-cols-6"
+    const gridClass = difficulty === "easy" ? "grid-cols-3 " : difficulty === "medium" ? "grid-cols-4" : "grid-cols-4"
 
-    const gridHeight = difficulty === "easy" ? "h-40" : difficulty === "medium" ? "h-36" : "h:36"
+    const gridHeight = difficulty === "easy" ? "h-40" : difficulty === "medium" ? "h-36" : "w-36 h-36"
 
     return (
       <div className={`grid gap-4 ${gridClass}`}>
