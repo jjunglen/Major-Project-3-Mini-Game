@@ -1,13 +1,14 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
+import useLocalStorage from "../hooks/useLocalStorage"
 
 
 const PlayerContext = createContext();
 
 export function PlayerProvider({ children }) {
-    const [ username, setUsername] = useState("New Player");
-    const [ highScores, setHighScores ] = useState([]);
-    const [ gamePlayed, setGamePlayed ] = useState(0);
-    const [ achievements, setAchievements ] = useState([]);
+    const [ username, setUsername] = useLocalStorage("username" ,"New Player");
+    const [ highScores, setHighScores ] = useLocalStorage("highscore" ,[]);
+    const [ gamePlayed, setGamePlayed ] = useLocalStorage("games-played" ,0);
+    const [ achievements, setAchievements ] = useLocalStorage("achievements" ,[]);
 
     const yourScore = (score, difficulty) => {
         const newEntry = {
