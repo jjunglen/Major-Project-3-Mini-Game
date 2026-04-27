@@ -24,11 +24,13 @@ An interactive memory card matching game built with React, featuring multiple di
 
 | Level | Pairs | Time | Moves |
 
-|---|---|---|---|
+------------
 
-| Easy | 6 | 120s | 60 |
-| Medium | 8 | 90s | 50 |
-| Legendary | 12 | 45s | 40 |
+| Easy | 6 | 120s | 60 Moves |
+
+| Medium | 8 | 90s | 50 Moves |
+
+| Legendary | 12 | 45s | 40 Moves |
 
 ## Technologies Used
 
