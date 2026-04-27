@@ -2,6 +2,8 @@
 
 An interactive memory card matching game built with React, featuring multiple difficulty levels, themes, and a leaderboard.
 
+Developer Notes: The theme section is currently limited due to constraints with the Lorem Picsum API. Once access to the Unsplash API is available, it will be updated accordingly.
+
 ## Live Demo
 
 [Play Memory Master](https://github.com/jjunglen/Major-Project-3-Mini-Game)
